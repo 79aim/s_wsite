@@ -5,21 +5,31 @@
     <!-- ------------ HEADER START ------------ -->
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Andrei I M Vaduva">
         <meta name="description" content="">
 
-        <title>View</title>
+        <title>Contact</title>
 
-        <!-- style -->
+        <!-- ------------ style ------------ -->
+        <!-- ------------ UNICONS ------------ -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
+
+        <!-- ------------ BOXICONS ------------ -->
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+        <!-- ------------ MAIN CSS ------------ -->
+        
         
         <link href="../static/base.css" rel="stylesheet" type="text/css">
-        <link href="../static/cover.css" rel="stylesheet" type="text/css">
-        <link href="../static/home.css" rel="stylesheet" type="text/css">
-        <link href="../static/about.css" rel="stylesheet" type="text/css">
-        <link href="../static/products.css" rel="stylesheet" type="text/css">
-        <link href="../static/services.css" rel="stylesheet" type="text/css">
+
+        
+
+        <link href="../static/contact.css" rel="stylesheet" type="text/css">
+
+
 
 
     </head>
@@ -27,8 +37,26 @@
 
     <body>
       <!-- -------------- SIDEBAR START ---------------- -->
-      <div class=""nav__toggle" id="nav-toggle">
+      <div class="nav__toggle" onclick="navToggle()" id="nav-toggle">
+        <i class="uil uil-bars"></i>  
+        <script>
+          function navToggle()
+          {
+            /*=============== SHOW SIDEBAR ===============*/
+            const navMenu = document.getElementById('sidebar'),
+                  navToggle = document.getElementById('nav-toggle'),
+                  navClose = document.getElementById('nav-close')
 
+            /*===== SIDEBAR SHOW =====*/
+            /* Validate If Constant Exists */
+            if(navToggle) {
+                navToggle.addEventListener("click", () => {
+                    navMenu.classList.add('show-sidebar')
+                })
+            }
+
+          }
+          </script>
       </div>
       <adide class="sidebar" id="sidebar">
         <nav class="nav">
@@ -62,10 +90,26 @@
           <!-- ------------ MENU END ------------ -->
           <!-- ------------ SHARE START ------------ -->
           <div class="btn__share">
-            <i class="uil uil-share-alt social__share"></i>
-          </div>
-          <div class="nav__close" id="nav-close">
-            <i class="uil uil-times"></i>
+            <input type="text" value="www.79aim.com" id="myInput" style="display: none;">
+            <button onclick="copyLink()" class="button">
+              <i class="uil uil-share-alt social__share"></i>
+            </button>
+            <script>
+              function copyLink() {
+                // Get the text field
+                var copyText = document.getElementById("myInput");
+              
+                // Select the text field
+                copyText.select();
+                copyText.setSelectionRange(0, 99999); // For mobile devices
+              
+                // Copy the text inside the text field
+                navigator.clipboard.writeText(copyText.value);
+                
+                // Alert the copied text
+                alert("Copied: " + copyText.value);
+              }
+              </script>
           </div>
           <!-- ------------ SHARE END ------------ -->
         </nav>
@@ -75,7 +119,71 @@
     <!--========== MAIN ==========-->
     <main class="main">
     
-    
+<!--===== Contact =====-->
+<section class="contact section" id="contact">
+    <h2 data-heading="Get in touch" class="section__title">Contact Me</h2>
+
+    <div class="contact__container container grid">
+        <div class="contact__content">
+            <div class="contact__info">
+                <div class="contact__card">
+                    <i class="uil uil-envelope-edit contact__card-icon"></i>
+                    <h3 class="contact__card-title">Email</h3>
+                    <span class="contact__card-data">aim.vaduva@gmail.com </span>
+                    <a href="mailto:examplemail@gmail.com" class="contact__button">
+                        Write me <i class="uil uil-arrow-right contact__button-icon"></i>
+                    </a>
+                </div>
+
+                <div class="contact__card">
+                    <i class="uil uil-whatsapp contact__card-icon"></i>
+                    <h3 class="contact__card-title">WhatsApp</h3>
+                    <span class="contact__card-data">721-733-069 </span>
+                    <a href="https://api.whatsapp.com/send?phone=349865677&text=Hello, more information!" class="contact__button">
+                        Call me <i class="uil uil-arrow-right contact__button-icon"></i>
+                    </a>
+                </div>
+
+                <div class="contact__card">
+                    <i class="uil uil-video contact__card-icon"></i>
+                    <h3 class="contact__card-title">Meeting</h3>
+                    <span class="contact__card-data">aim-vaduva</span>
+                    <a href="https://calendly.com/aim-vaduva " class="contact__button">
+                        Meet me <i class="uil uil-arrow-right contact__button-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact__content">
+            <form action="" class="contact__form">
+                <div class="input__container">
+                    <input type="text" class="input">
+                    <label for="">Name</label>
+                    <span>Name</span>
+                </div>
+                <div class="input__container">
+                    <input type="email" class="input">
+                    <label for="">Email</label>
+                    <span>Email</span>
+                </div>
+                <div class="input__container">
+                    <input type="tel" class="input">
+                    <label for="">Phone</label>
+                    <span>Phone</span>
+                </div>
+                <div class="input__container textarea">
+                    <textarea name="" id="" class="input"></textarea>
+                    <label for="">Message</label>
+                    <span>Message</span>
+                </div>
+                <button type="submit" class="button"><i class="uil uil-navigator button__icon"></i>
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</section> 
 
     </main>
     </body>
@@ -85,36 +193,36 @@
       <div class="footer__bg">
           <div class="footer__container container grid">
               <div>
-                  <h1 class="footer__title">Andrei</h1>
-                  <span class="footer__subtitle">Embeeded Engineer</span>
+                  <h1 class="footer__title">Andrei I. M. Vaduva </h1>
+                  <span class="footer__subtitle">Software Embedded Engineer </span>
               </div>
 
               <ul class="footer__links">
                   <li>
-                      <a href="/services" class="footer__link">Services</a>
+                      <a href="../services/index.html" class="footer__link">Services</a>
                   </li>
                   <li>
-                      <a href="/work" class="footer__link">Work</a>
+                      <a href="../work/index.html" class="footer__link">Work</a>
                   </li>
                   <li>
-                      <a href="/contact" class="footer__link">Contact</a>
+                      <a href="../contact/index.htmlt" class="footer__link">Contact</a>
                   </li>
               </ul>
 
               <div class="footer__socials">
-                  <a href="https://www.facebook.com/" target="_blank" class="footer__social">
-                      <i class="uil uil-facebook-f"></i>
+                  <a href="https://www.discordapp.com/users/554329266305630211" target="_blank" class="footer__social">
+                      <i class="uil uil-discord"></i>
                   </a>
-                  <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                  <a href="https://www.instagram.com/aimvaduva/" target="_blank" class="footer__social">
                       <i class="uil uil-instagram"></i>
                   </a>
-                  <a href="https://twitter.com/" target="_blank" class="footer__social">
-                      <i class="uil uil-twitter"></i>
+                  <a href="https://www.linkedin.com/in/andrei-i-m-vaduva-a17956195" target="_blank" class="footer__social">
+                      <i class="uil uil-linkedin"></i>
                   </a>
               </div>
           </div>
 
-          <p class="footer__copy">&#169; Crypticalcoder. All right reserved</p>
+          <p class="footer__copy">&#169; In Development</p>
       </div>
   </footer>
   <!-- ------------ FOOTER END ------------ -->

@@ -5,21 +5,31 @@
     <!-- ------------ HEADER START ------------ -->
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Andrei I M Vaduva">
         <meta name="description" content="">
 
-        <title>View</title>
+        <title>Work</title>
 
-        <!-- style -->
+        <!-- ------------ style ------------ -->
+        <!-- ------------ UNICONS ------------ -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
+
+        <!-- ------------ BOXICONS ------------ -->
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+        <!-- ------------ MAIN CSS ------------ -->
+        
         
         <link href="../static/base.css" rel="stylesheet" type="text/css">
-        <link href="../static/cover.css" rel="stylesheet" type="text/css">
-        <link href="../static/home.css" rel="stylesheet" type="text/css">
-        <link href="../static/about.css" rel="stylesheet" type="text/css">
-        <link href="../static/products.css" rel="stylesheet" type="text/css">
-        <link href="../static/services.css" rel="stylesheet" type="text/css">
+
+        
+
+        <link href="../static/work.css" rel="stylesheet" type="text/css">
+
+
 
 
     </head>
@@ -27,8 +37,26 @@
 
     <body>
       <!-- -------------- SIDEBAR START ---------------- -->
-      <div class=""nav__toggle" id="nav-toggle">
+      <div class="nav__toggle" onclick="navToggle()" id="nav-toggle">
+        <i class="uil uil-bars"></i>  
+        <script>
+          function navToggle()
+          {
+            /*=============== SHOW SIDEBAR ===============*/
+            const navMenu = document.getElementById('sidebar'),
+                  navToggle = document.getElementById('nav-toggle'),
+                  navClose = document.getElementById('nav-close')
 
+            /*===== SIDEBAR SHOW =====*/
+            /* Validate If Constant Exists */
+            if(navToggle) {
+                navToggle.addEventListener("click", () => {
+                    navMenu.classList.add('show-sidebar')
+                })
+            }
+
+          }
+          </script>
       </div>
       <adide class="sidebar" id="sidebar">
         <nav class="nav">
@@ -62,10 +90,26 @@
           <!-- ------------ MENU END ------------ -->
           <!-- ------------ SHARE START ------------ -->
           <div class="btn__share">
-            <i class="uil uil-share-alt social__share"></i>
-          </div>
-          <div class="nav__close" id="nav-close">
-            <i class="uil uil-times"></i>
+            <input type="text" value="www.79aim.com" id="myInput" style="display: none;">
+            <button onclick="copyLink()" class="button">
+              <i class="uil uil-share-alt social__share"></i>
+            </button>
+            <script>
+              function copyLink() {
+                // Get the text field
+                var copyText = document.getElementById("myInput");
+              
+                // Select the text field
+                copyText.select();
+                copyText.setSelectionRange(0, 99999); // For mobile devices
+              
+                // Copy the text inside the text field
+                navigator.clipboard.writeText(copyText.value);
+                
+                // Alert the copied text
+                alert("Copied: " + copyText.value);
+              }
+              </script>
           </div>
           <!-- ------------ SHARE END ------------ -->
         </nav>
@@ -75,7 +119,200 @@
     <!--========== MAIN ==========-->
     <main class="main">
     
-    
+<!--===== Work =====-->
+<section class="work section" id="work">
+    <h2 data-heading="My Portfolio" class="section__title">Recent Works</h2>
+
+    <div class="work__filters">
+        <span class="work__item" data-filter="all">All</span>
+        <span class="work__item" data-filter=".web">Embedded</span>
+        <span class="work__item" data-filter=".app">Mobile</span>
+        <span class="work__item" data-filter=".design">Desktop</span>
+    </div>
+
+    <div class="work__container container grid">
+
+        <div class="work__card mix web">
+            
+            <img src="/static/assets/work/photo.jpg" alt="" class="work__img">
+            <h3 class="work__title">ImGUI Based SystemArchitect</h3>
+            <span class="work__button">Git
+                <i class="uil uil-arrow-right work__button-icon"></i>
+            </span>
+            <div class="portfolio__item-details">
+                <h3 class="details__title">Node Edditor Architect Diagram</h3>
+                <p class="details__description">An Simple XML based System Siagram.</p>
+                <ul class="details__info">
+                    <li>In Progress since - <span>17 Aug 2022</span></li>
+                    <li>Technologies - <span>C++</span></li>
+                    <li>Role - <span>Developer</span></li>
+                    <li>View - <span><a href="#">www.domain.com</a></span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="work__card mix app">
+            
+            <img src="/static/assets/work/photo.jpg" alt="" class="work__img">
+            <h3 class="work__title">ESP32 BioBox</h3>
+            <span class="work__button">Git
+                <i class="uil uil-arrow-right work__button-icon"></i>
+            </span>
+            <div class="portfolio__item-details">
+                <h3 class="details__title">Bio System Box</h3>
+                <p class="details__description">A fully encolosed box with self susteinable biosistem.</p>
+                <ul class="details__info">
+                    <li>In Progress since - <span>28 Ian 2023</span></li>
+                    <li>Technologies - <span>C</span></li>
+                    <li>Role - <span>Developer</span></li>
+                    <li>View - <span><a href="#">www.domain.com</a></span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="work__card mix design">
+            
+            <img src="/static/assets/work/photo.jpg" alt="" class="work__img">
+            <h3 class="work__title">Android Emergency SignalFlare</h3>
+            <span class="work__button">Git
+                <i class="uil uil-arrow-right work__button-icon"></i>
+            </span>
+            <div class="portfolio__item-details">
+                <h3 class="details__title">Android Emergency Notification</h3>
+                <p class="details__description">An Android application which allows the user to setup an emergency notification to parson or a group with the latest location of the user. Notification will be sent only if the user coudn't reach the device within a specified period.</p>
+                <ul class="details__info">
+                    <li>In Progress since - <span>3 Sep 2021</span></li>
+                    <li>Technologies - <span>C++</span></li>
+                    <li>Role - <span>Developer</span></li>
+                    <li>View - <span><a href="#">www.domain.com</a></span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="work__card mix design">
+            
+            <img src="/static/assets/work/photo.jpg" alt="" class="work__img">
+            <h3 class="work__title">Embedeed Timer Calculator</h3>
+            <span class="work__button">Git
+                <i class="uil uil-arrow-right work__button-icon"></i>
+            </span>
+            <div class="portfolio__item-details">
+                <h3 class="details__title">A simple timer calculator for embedded applications</h3>
+                <p class="details__description">It allows the user to introduce the size of the source clock, prescaler, postscaler & timer in order to calculate the settings for the desired timer.</p>
+                <ul class="details__info">
+                    <li>In Progress since - <span>2 Aug 2023</span></li>
+                    <li>Technologies - <span>C</span></li>
+                    <li>Role - <span>Developer</span></li>
+                    <li>View - <span><a href="#">www.domain.com</a></span></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--===== Skills =====-->
+<section class="skills section" id="skills">
+    <h2 data-heading="My Abilities" class="section__title">My Experience</h2>
+
+    <div class="skills__container container grid">
+        <div class="skills__tabs">
+            <div class="skills__header" data-target="#embeeded_app">
+                <i class="uil uil-circuit skills__icon"></i>
+
+                <div>
+                    <h1 class="skills__title">Embeeded Software Engineer</h1>
+                    <span class="skills__subtitle">More than 5 years</span>
+                </div>
+
+                <i class="uil uil-angle-down skills__arrow"></i>
+            </div>
+
+            <div class="skills__header" data-target="#mobile_app">
+                <i class="uil uil-mobile-android skills__icon"></i>
+
+                <div>
+                    <h1 class="skills__title">Mobile Software Developer</h1>
+                    <span class="skills__subtitle">Less than 1 year</span>
+                </div>
+
+                <i class="uil uil-angle-down skills__arrow"></i>
+            </div>
+
+            <div class="skills__header" data-target="#desktop_app">
+                <i class="uil uil-desktop-alt skills__icon"></i>
+
+                <div>
+                    <h1 class="skills__title">Desktop Software Developer</h1>
+                    <span class="skills__subtitle">More than 1 year</span>
+                </div>
+
+                <i class="uil uil-angle-down skills__arrow"></i>
+            </div>
+        </div>
+
+        <div class="skills__content">
+            <div class="skills__group skills__active" data-content id="languages">
+                <div class="skills__list grid">
+                    <div class="skills__data">
+                        <div class="skills__titles">
+                            <h3 class="skills__name">C</h3>
+                            <span class="skills__number">91%</span>
+                        </div>
+
+                        <div class="skills__bar">
+                            <span class="skills__percentage" style="width: 91%;"></span>
+                        </div>
+                    </div>
+
+                    <div class="skills__data">
+                        <div class="skills__titles">
+                            <h3 class="skills__name">C++</h3>
+                            <span class="skills__number">71%</span>
+                        </div>
+
+                        <div class="skills__bar">
+                            <span class="skills__percentage" style="width: 71%;"></span>
+                        </div>
+                    </div>
+
+                    <div class="skills__data">
+                        <div class="skills__titles">
+                            <h3 class="skills__name">bash</h3>
+                            <span class="skills__number">50%</span>
+                        </div>
+
+                        <div class="skills__bar">
+                            <span class="skills__percentage" style="width: 50%;"></span>
+                        </div>
+                    </div>
+
+                    <div class="skills__data">
+                        <div class="skills__titles">
+                            <h3 class="skills__name">C/CMake</h3>
+                            <span class="skills__number">20%</span>
+                        </div>
+
+                        <div class="skills__bar">
+                            <span class="skills__percentage" style="width: 20%;"></span>
+                        </div>
+                    </div>
+
+                    <div class="skills__data">
+                        <div class="skills__titles">
+                            <h3 class="skills__name">Python</h3>
+                            <span class="skills__number">57%</span>
+                        </div>
+
+                        <div class="skills__bar">
+                            <span class="skills__percentage" style="width: 57%;"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     </main>
     </body>
@@ -85,36 +322,36 @@
       <div class="footer__bg">
           <div class="footer__container container grid">
               <div>
-                  <h1 class="footer__title">Andrei</h1>
-                  <span class="footer__subtitle">Embeeded Engineer</span>
+                  <h1 class="footer__title">Andrei I. M. Vaduva </h1>
+                  <span class="footer__subtitle">Software Embedded Engineer </span>
               </div>
 
               <ul class="footer__links">
                   <li>
-                      <a href="/services" class="footer__link">Services</a>
+                      <a href="../services/index.html" class="footer__link">Services</a>
                   </li>
                   <li>
-                      <a href="/work" class="footer__link">Work</a>
+                      <a href="../work/index.html" class="footer__link">Work</a>
                   </li>
                   <li>
-                      <a href="/contact" class="footer__link">Contact</a>
+                      <a href="../contact/index.htmlt" class="footer__link">Contact</a>
                   </li>
               </ul>
 
               <div class="footer__socials">
-                  <a href="https://www.facebook.com/" target="_blank" class="footer__social">
-                      <i class="uil uil-facebook-f"></i>
+                  <a href="https://www.discordapp.com/users/554329266305630211" target="_blank" class="footer__social">
+                      <i class="uil uil-discord"></i>
                   </a>
-                  <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                  <a href="https://www.instagram.com/aimvaduva/" target="_blank" class="footer__social">
                       <i class="uil uil-instagram"></i>
                   </a>
-                  <a href="https://twitter.com/" target="_blank" class="footer__social">
-                      <i class="uil uil-twitter"></i>
+                  <a href="https://www.linkedin.com/in/andrei-i-m-vaduva-a17956195" target="_blank" class="footer__social">
+                      <i class="uil uil-linkedin"></i>
                   </a>
               </div>
           </div>
 
-          <p class="footer__copy">&#169; Crypticalcoder. All right reserved</p>
+          <p class="footer__copy">&#169; In Development</p>
       </div>
   </footer>
   <!-- ------------ FOOTER END ------------ -->

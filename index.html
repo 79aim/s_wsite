@@ -5,23 +5,31 @@
     <!-- ------------ HEADER START ------------ -->
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Andrei I M Vaduva">
         <meta name="description" content="">
 
-        <title>
-Cover
-</title>
+        <title>Cover</title>
 
-        <!-- style -->
+        <!-- ------------ style ------------ -->
+        <!-- ------------ UNICONS ------------ -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
+
+        <!-- ------------ BOXICONS ------------ -->
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+        <!-- ------------ MAIN CSS ------------ -->
+        
         
         <link href="./static/base.css" rel="stylesheet" type="text/css">
+
+        
+
         <link href="./static/cover.css" rel="stylesheet" type="text/css">
-        <link href="./static/home.css" rel="stylesheet" type="text/css">
-        <link href="./static/about.css" rel="stylesheet" type="text/css">
-        <link href="./static/products.css" rel="stylesheet" type="text/css">
-        <link href="./static/services.css" rel="stylesheet" type="text/css">
+
+
 
 
     </head>
@@ -29,14 +37,32 @@ Cover
 
     <body>
       <!-- -------------- SIDEBAR START ---------------- -->
-      <div class=""nav__toggle" id="nav-toggle">
+      <div class="nav__toggle" onclick="navToggle()" id="nav-toggle">
+        <i class="uil uil-bars"></i>  
+        <script>
+          function navToggle()
+          {
+            /*=============== SHOW SIDEBAR ===============*/
+            const navMenu = document.getElementById('sidebar'),
+                  navToggle = document.getElementById('nav-toggle'),
+                  navClose = document.getElementById('nav-close')
 
+            /*===== SIDEBAR SHOW =====*/
+            /* Validate If Constant Exists */
+            if(navToggle) {
+                navToggle.addEventListener("click", () => {
+                    navMenu.classList.add('show-sidebar')
+                })
+            }
+
+          }
+          </script>
       </div>
       <adide class="sidebar" id="sidebar">
         <nav class="nav">
           <!-- ------------ LOGO START ------------ -->
           <div class="nav__logo">
-            <a href="../cover/index.html" class="nav__logo-text">AIM</a>
+            <a href="./cover/index.html" class="nav__logo-text">AIM</a>
           </div>
           <!-- ------------ LOGO END ------------ -->
           <!-- ------------ MENU START ------------ -->
@@ -64,10 +90,26 @@ Cover
           <!-- ------------ MENU END ------------ -->
           <!-- ------------ SHARE START ------------ -->
           <div class="btn__share">
-            <i class="uil uil-share-alt social__share"></i>
-          </div>
-          <div class="nav__close" id="nav-close">
-            <i class="uil uil-times"></i>
+            <input type="text" value="www.79aim.com" id="myInput" style="display: none;">
+            <button onclick="copyLink()" class="button">
+              <i class="uil uil-share-alt social__share"></i>
+            </button>
+            <script>
+              function copyLink() {
+                // Get the text field
+                var copyText = document.getElementById("myInput");
+              
+                // Select the text field
+                copyText.select();
+                copyText.setSelectionRange(0, 99999); // For mobile devices
+              
+                // Copy the text inside the text field
+                navigator.clipboard.writeText(copyText.value);
+                
+                // Alert the copied text
+                alert("Copied: " + copyText.value);
+              }
+              </script>
           </div>
           <!-- ------------ SHARE END ------------ -->
         </nav>
@@ -81,14 +123,14 @@ Cover
 <section class="home" id="home">
   <div class="home__container container grid">
 
-      <img src="assets_cover/cover-img.png" alt="" class="home__img">
+      
+      <img src="/static/assets/home/photo.jpg" alt="" class="home__img">
 
       <div class="home__data">
-          <h1 class="home__title">Hi! My name is Andrei I. M. Vaduva!</h1>
-          <h3 class="home__subtitle">I'm a <span class="typing"><span>Software Embedded Engineer</span></span></h3>
-          <p class="home__description">High level experience in embedded design and development knowledge,
-              producing quality work.</p>
-          <a  class="button"><i class="uil uil-user button__icon"></i>
+          <h1 class="home__title">Hi! My name is Andrei I. M. Vaduva !</h1>
+          <h3 class="home__subtitle">I'm a <span class="typing"><span>Software Embedded Engineer </span></span></h3>
+          <p class="home__description">Good expertise in embedded systems and microcontrollers, I thrive on crafting innovative solutions that drive the advancement of automotive development.</p>
+          <a  href="./about/index.html" class="button"><i class="uil uil-user button__icon"></i>
               More About Me
           </a>
       </div>
@@ -99,7 +141,7 @@ Cover
 
               <div>
                   <h3 class="info__title">LinkedIn</h3>
-                  <span class="info__subtitle">aim.vaduva</span>
+                  <span class="info__subtitle">andrei-i-m-vaduva</span>
               </div>
           </div>
 
@@ -108,7 +150,7 @@ Cover
 
               <div>
                   <h3 class="info__title">Whatsapp</h3>
-                  <span class="info__subtitle">721-733-069</span>
+                  <span class="info__subtitle">721-733-069 </span>
               </div>
           </div>
 
@@ -117,7 +159,7 @@ Cover
 
               <div>
                   <h3 class="info__title">Email</h3>
-                  <span class="info__subtitle">aim.vaduva@gmail.com</span>
+                  <span class="info__subtitle">aim.vaduva@gmail.com </span>
               </div>
           </div>
       </div>
@@ -132,36 +174,36 @@ Cover
       <div class="footer__bg">
           <div class="footer__container container grid">
               <div>
-                  <h1 class="footer__title">Andrei</h1>
-                  <span class="footer__subtitle">Embeeded Engineer</span>
+                  <h1 class="footer__title">Andrei I. M. Vaduva </h1>
+                  <span class="footer__subtitle">Software Embedded Engineer </span>
               </div>
 
               <ul class="footer__links">
                   <li>
-                      <a href="/services" class="footer__link">Services</a>
+                      <a href="./services/index.html" class="footer__link">Services</a>
                   </li>
                   <li>
-                      <a href="/work" class="footer__link">Work</a>
+                      <a href="./work/index.html" class="footer__link">Work</a>
                   </li>
                   <li>
-                      <a href="/contact" class="footer__link">Contact</a>
+                      <a href="./contact/index.htmlt" class="footer__link">Contact</a>
                   </li>
               </ul>
 
               <div class="footer__socials">
-                  <a href="https://www.facebook.com/" target="_blank" class="footer__social">
-                      <i class="uil uil-facebook-f"></i>
+                  <a href="https://www.discordapp.com/users/554329266305630211" target="_blank" class="footer__social">
+                      <i class="uil uil-discord"></i>
                   </a>
-                  <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                  <a href="https://www.instagram.com/aimvaduva/" target="_blank" class="footer__social">
                       <i class="uil uil-instagram"></i>
                   </a>
-                  <a href="https://twitter.com/" target="_blank" class="footer__social">
-                      <i class="uil uil-twitter"></i>
+                  <a href="https://www.linkedin.com/in/andrei-i-m-vaduva-a17956195" target="_blank" class="footer__social">
+                      <i class="uil uil-linkedin"></i>
                   </a>
               </div>
           </div>
 
-          <p class="footer__copy">&#169; Crypticalcoder. All right reserved</p>
+          <p class="footer__copy">&#169; In Development</p>
       </div>
   </footer>
   <!-- ------------ FOOTER END ------------ -->
