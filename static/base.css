@@ -141,6 +141,31 @@ input {
     color: var(--skin-color);
 }
 
+.typing
+{
+  display: inline-flex;
+}
+
+.typing span 
+{
+  word-break: break-all;
+  height: 1.4em;
+  color: var(--skin-color);
+  width: 0%;
+  overflow: hidden;
+  animation:t 2s linear infinite alternate;
+}
+.typing span:before 
+{
+  content:" ";
+  display: inline-block;
+}
+
+@keyframes t{
+  from {width: 0%}
+  to {width: 100%;}
+}
+
 /*=============== SIDEBAR ===============*/
 .sidebar {
     position: fixed;
